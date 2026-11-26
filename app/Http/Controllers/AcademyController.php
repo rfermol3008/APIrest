@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateAcademyRequest;
 use App\Http\Resources\AcademyResource;
 use App\Models\Academy;
 use Illuminate\Http\Request;
+use App\Http\Resources\CourseResource;
 
 class AcademyController extends Controller
 {
@@ -47,5 +48,9 @@ class AcademyController extends Controller
         $academy->delete();
 
         return response()->noContent();
+    }
+    public function courses(Academy $academy)
+    {
+        return CourseResource::collection($academy->courses);
     }
 }
