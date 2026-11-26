@@ -4,9 +4,15 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Http\Resources\CourseResource;
 
 class AcademyResource extends JsonResource
 {
+
+public function courses(Academy $academy)
+{
+    return CourseResource::collection($academy->courses);
+}
     /**
      * Transform the resource into an array.
      *
